@@ -7,6 +7,10 @@
 		<compilerflag value="-DPIXMAN_NO_TLS" if="windows" />
 		<compilerflag value="-DHAVE_PTHREADS" unless="windows" />
 		
+		<compilerflag value="-DUSE_SSE2" if="mingw" />
+		<compilerflag value="-msse" if="mingw" />
+		<compilerflag value="-msse2" if="mingw" />
+		
 		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac || ios || tvos" />
 		
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman.c" />
@@ -18,6 +22,7 @@
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-conical-gradient.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-filter.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-x86.c" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-sse2.c" if="mingw"/>
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-mips.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-ppc.c" />
